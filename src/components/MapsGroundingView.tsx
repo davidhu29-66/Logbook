@@ -298,44 +298,43 @@ export const MapsGroundingView: React.FC<MapsGroundingViewProps> = ({
                   </div>
                 </div>
 
-                {result.estimatedKm && (
-                  <div className="flex items-center gap-3">
-                    <div className="flex flex-col gap-1">
-                      <span className="text-[10px] uppercase font-bold text-slate-400">Mileage (KM)</span>
-                      <div className="relative group">
-                        <input
-                          type="number"
-                          step="0.1"
-                          value={manualDistance}
-                          onChange={(e) => setManualDistance(e.target.value)}
-                          className="w-24 px-3 py-1.5 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-black font-mono focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all"
-                        />
-                        <div className="absolute -top-1 -right-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                           <span className="flex h-3 w-3">
-                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                             <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
-                           </span>
-                        </div>
-                      </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[10px] uppercase font-bold text-slate-400">
+                      Mileage (KM) <span className="text-blue-400 font-normal">(Editable)</span>
+                    </span>
+                    <div className="relative group">
+                      <input
+                        type="number"
+                        step="any"
+                        value={manualDistance}
+                        onChange={(e) => setManualDistance(e.target.value)}
+                        placeholder="0"
+                        className="w-28 px-3 py-1.5 rounded-xl bg-blue-500/10 border border-blue-500/40 text-blue-300 text-sm font-black font-mono focus:bg-slate-900 focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all"
+                      />
                     </div>
-
-                    <button
-                      type="button"
-                      onClick={() =>
-                        onLogTripWithRoute({
-                          origin: origin || 'Base',
-                          destination: destination || customQuery,
-                          distanceKm: parseFloat(manualDistance) || result.estimatedKm || 25,
-                          notes: `Verified route: ${origin || 'Base'} to ${destination || customQuery}${parseFloat(manualDistance) !== result.estimatedKm ? ` (Manual adjustment: ${manualDistance}km)` : ''}`,
-                        })
-                      }
-                      className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-500 shadow-lg shadow-emerald-900/20 transition-all hover:scale-105"
-                    >
-                      <Car className="w-4 h-4" />
-                      Log Trip (+{manualDistance || '0'} km)
-                    </button>
                   </div>
-                )}
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      onLogTripWithRoute({
+                        origin: origin || 'Base',
+                        destination: destination || customQuery,
+                        distanceKm: parseFloat(manualDistance) || (result.estimatedKm ?? 25),
+                        notes: `Verified route: ${origin || 'Base'} to ${destination || customQuery}${
+                          result.estimatedKm && parseFloat(manualDistance) !== result.estimatedKm
+                            ? ` (Manual adjustment: ${manualDistance}km)`
+                            : ''
+                        }`,
+                      })
+                    }
+                    className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-500 shadow-lg shadow-emerald-900/20 transition-all hover:scale-105"
+                  >
+                    <Car className="w-4 h-4" />
+                    Log Trip (+{manualDistance || '0'} km)
+                  </button>
+                </div>
               </div>
 
               {result.isFallback && (

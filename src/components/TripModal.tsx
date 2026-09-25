@@ -61,6 +61,7 @@ export const TripModal: React.FC<TripModalProps> = ({
     mapLinks: Array<{ title: string; uri: string }>;
   } | null>(null);
   const [mapsError, setMapsError] = useState<string | null>(null);
+  const [mapsDistanceInput, setMapsDistanceInput] = useState<string>('');
   const [gpsLoading, setGpsLoading] = useState(false);
 
   const handleUseCurrentLocation = () => {
@@ -225,6 +226,9 @@ export const TripModal: React.FC<TripModalProps> = ({
         userLocation,
       });
       setMapsResult(data);
+      if (data.estimatedKm) {
+        setMapsDistanceInput(String(data.estimatedKm));
+      }
     } catch (err: any) {
       setMapsError(err.message || 'Error fetching Maps route');
     } finally {
@@ -233,8 +237,9 @@ export const TripModal: React.FC<TripModalProps> = ({
   };
 
   const handleApplyMapsDistance = () => {
-    if (mapsResult?.estimatedKm) {
-      const newIn = mileageOut + Math.round(mapsResult.estimatedKm);
+    const dist = parseFloat(mapsDistanceInput) || mapsResult?.estimatedKm || 0;
+    if (dist > 0) {
+      const newIn = mileageOut + Math.round(dist);
       setMileageIn(newIn);
     }
   };
@@ -679,21 +684,32 @@ export const TripModal: React.FC<TripModalProps> = ({
 
             {mapsResult && (
               <div className="rounded-xl border border-blue-500/30 bg-blue-950/20 p-3 space-y-2 text-xs">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <span className="font-bold text-blue-300 flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
                     Google Maps Grounded Route
                   </span>
-                  {mapsResult.estimatedKm && (
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1 bg-slate-900/80 px-2 py-1 rounded-lg border border-slate-700">
+                      <span className="text-[10px] text-slate-400 font-bold">KM:</span>
+                      <input
+                        type="number"
+                        step="any"
+                        value={mapsDistanceInput}
+                        onChange={(e) => setMapsDistanceInput(e.target.value)}
+                        placeholder="0"
+                        className="w-16 bg-transparent text-right font-mono font-bold text-blue-300 focus:outline-none"
+                      />
+                    </div>
                     <button
                       type="button"
                       onClick={handleApplyMapsDistance}
                       className="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] flex items-center gap-1 shadow transition-all"
                     >
                       <Check className="w-3 h-3" />
-                      Apply Distance (+{mapsResult.estimatedKm} km)
+                      Apply (+{mapsDistanceInput || '0'} km)
                     </button>
-                  )}
+                  </div>
                 </div>
 
                 <p className="text-slate-300 text-[11px] line-clamp-3">
