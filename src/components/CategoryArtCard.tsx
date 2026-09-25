@@ -29,10 +29,23 @@ export const CategoryArtCard: React.FC<CategoryArtCardProps> = ({
   isTimerRunning = false,
   onAction,
 }) => {
-  // Theme configuration matched to the 6 uploaded artworks and container modes
+  // Theme configuration matched to the 6 artworks and container modes
   const theme = {
-    // 1. Chargeable Mileage -> Chargeable_mileage_20260924103504.jpeg (Electric Blue/Cyan Crystal Falcon)
+    // 1. Chargeable Mileage -> Red Phoenix (Private_Mileage_20260924103509.jpeg)
     'charge-mileage': {
+      bgImage: privateMileageImg,
+      fileName: 'Private_Mileage_20260924103509.jpeg',
+      gradient: 'from-rose-950/80 via-slate-900 to-black',
+      border: 'border-rose-500/40 hover:border-rose-400',
+      badgeBg: 'bg-rose-500/20 text-rose-300 border-rose-500/30',
+      glow: 'shadow-rose-950/50 hover:shadow-rose-700/20',
+      btnBg: 'bg-rose-600 hover:bg-rose-500 text-white',
+      accentColor: '#f43f5e',
+      icon: <Briefcase className="w-5 h-5 text-rose-400" />,
+      actionText: 'Log Chargeable Trip',
+    },
+    // 2. Admin Mileage -> Blue Bird (Chargeable_mileage_20260924103504.jpeg)
+    'admin-mileage': {
       bgImage: chargeMileageImg,
       fileName: 'Chargeable_mileage_20260924103504.jpeg',
       gradient: 'from-sky-950/80 via-slate-900 to-black',
@@ -41,26 +54,13 @@ export const CategoryArtCard: React.FC<CategoryArtCardProps> = ({
       glow: 'shadow-sky-950/50 hover:shadow-sky-700/20',
       btnBg: 'bg-sky-600 hover:bg-sky-500 text-white',
       accentColor: '#38bdf8',
-      icon: <Briefcase className="w-5 h-5 text-sky-400" />,
-      actionText: 'Log Chargeable Trip',
-    },
-    // 2. Admin Mileage -> Admin_mileage_20260924103457.jpeg (Deep Violet/Purple Crystal Horned Owl)
-    'admin-mileage': {
-      bgImage: adminMileageImg,
-      fileName: 'Admin_mileage_20260924103457.jpeg',
-      gradient: 'from-purple-950/80 via-slate-900 to-black',
-      border: 'border-purple-500/40 hover:border-purple-400',
-      badgeBg: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
-      glow: 'shadow-purple-950/50 hover:shadow-purple-700/20',
-      btnBg: 'bg-purple-600 hover:bg-purple-500 text-white',
-      accentColor: '#c084fc',
-      icon: <Car className="w-5 h-5 text-purple-400" />,
+      icon: <Car className="w-5 h-5 text-sky-400" />,
       actionText: 'Log Admin Travel',
     },
-    // 3. Private Mileage -> Electric Violet / Purple Theme
+    // 3. Private Mileage -> Violet Owl (Admin_mileage_20260924103457.jpeg)
     'pvt-mileage': {
-      bgImage: privateMileageImg,
-      fileName: 'Private_Mileage_20260924103509.jpeg',
+      bgImage: adminMileageImg,
+      fileName: 'Admin_mileage_20260924103457.jpeg',
       gradient: 'from-violet-950/80 via-slate-900 to-black',
       border: 'border-violet-500/40 hover:border-violet-400',
       badgeBg: 'bg-violet-500/20 text-violet-300 border-violet-500/30',

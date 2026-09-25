@@ -61,7 +61,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       title: t.category === 'private' ? 'Private Trip' : `${t.client || 'Admin'} (${t.businessType})`,
       subtitle: `${t.mileageOut} → ${t.mileageIn} (${Math.max(0, (t.mileageIn || 0) - (t.mileageOut || 0))} KM)`,
       badge: `${Math.max(0, (t.mileageIn || 0) - (t.mileageOut || 0))} KM`,
-      color: t.category === 'private' ? 'text-violet-400 bg-violet-500/10' : (t.businessType === 'admin' ? 'text-amber-400 bg-amber-500/10' : 'text-blue-400 bg-blue-500/10'),
+      color: t.category === 'private' ? 'text-violet-400 bg-violet-500/10' : (t.businessType === 'admin' ? 'text-sky-400 bg-sky-500/10' : 'text-rose-400 bg-rose-500/10'),
     })),
     ...sessions.filter((s) => s.status === 'completed').map((s) => {
       const a = new Date(`${s.onDate}T${s.onTime || '00:00'}`);

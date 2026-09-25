@@ -71,7 +71,7 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({ trips, sessions })
 
   const mileagePieData = [
     { name: 'Chargeable KM', value: chargeableKm, color: '#ef4444' },
-    { name: 'Admin KM', value: adminKm, color: '#f59e0b' },
+    { name: 'Admin KM', value: adminKm, color: '#0ea5e9' },
     { name: 'Private KM', value: privateKm, color: '#8b5cf6' },
   ].filter((d) => d.value > 0);
 
