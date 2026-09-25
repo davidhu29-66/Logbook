@@ -161,7 +161,7 @@ export const TripsView: React.FC<TripsViewProps> = ({
         </div>
         <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
           <span className="text-xs text-slate-400">Private KM</span>
-          <p className="text-2xl font-bold font-mono text-rose-400 mt-1">{privateKm.toLocaleString()} KM</p>
+          <p className="text-2xl font-bold font-mono text-violet-400 mt-1">{privateKm.toLocaleString()} KM</p>
         </div>
       </div>
 
@@ -277,7 +277,7 @@ export const TripsView: React.FC<TripsViewProps> = ({
             let badgeColor = 'bg-blue-500/20 text-blue-300 border-blue-500/30';
             let label = 'Chargeable';
             if (trip.category === 'private') {
-              badgeColor = 'bg-rose-500/20 text-rose-300 border-rose-500/30';
+              badgeColor = 'bg-violet-500/20 text-violet-300 border-violet-500/30';
               label = 'Private';
             } else if (trip.businessType === 'admin') {
               badgeColor = 'bg-amber-500/20 text-amber-300 border-amber-500/30';

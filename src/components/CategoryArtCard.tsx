@@ -57,17 +57,17 @@ export const CategoryArtCard: React.FC<CategoryArtCardProps> = ({
       icon: <Car className="w-5 h-5 text-purple-400" />,
       actionText: 'Log Admin Travel',
     },
-    // 3. Private Mileage -> Private_Mileage_20260924103509.jpeg (Fiery Crimson Phoenix)
+    // 3. Private Mileage -> Electric Violet / Purple Theme
     'pvt-mileage': {
       bgImage: privateMileageImg,
       fileName: 'Private_Mileage_20260924103509.jpeg',
-      gradient: 'from-rose-950/80 via-slate-900 to-black',
-      border: 'border-rose-500/40 hover:border-rose-400',
-      badgeBg: 'bg-rose-500/20 text-rose-300 border-rose-500/30',
-      glow: 'shadow-rose-950/50 hover:shadow-rose-700/20',
-      btnBg: 'bg-rose-600 hover:bg-rose-500 text-white',
-      accentColor: '#f43f5e',
-      icon: <User className="w-5 h-5 text-rose-400" />,
+      gradient: 'from-violet-950/80 via-slate-900 to-black',
+      border: 'border-violet-500/40 hover:border-violet-400',
+      badgeBg: 'bg-violet-500/20 text-violet-300 border-violet-500/30',
+      glow: 'shadow-violet-950/50 hover:shadow-violet-700/20',
+      btnBg: 'bg-violet-600 hover:bg-violet-500 text-white',
+      accentColor: '#8b5cf6',
+      icon: <User className="w-5 h-5 text-violet-400" />,
       actionText: 'Log Private Drive',
     },
     // 4. Time On-Site -> Time_on_site_20260924103501.jpeg (Emerald Green Crystal Falcon)

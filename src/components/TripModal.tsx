@@ -335,7 +335,7 @@ export const TripModal: React.FC<TripModalProps> = ({
               onClick={() => setCategory('private')}
               className={`rounded-lg py-2 text-xs font-semibold border transition-all ${
                 category === 'private'
-                  ? 'bg-rose-600/20 border-rose-500 text-rose-300 shadow-sm'
+                  ? 'bg-violet-600/20 border-violet-500 text-violet-300 shadow-sm'
                   : 'bg-slate-800/60 border-slate-700 text-slate-400 hover:bg-slate-800'
               }`}
             >

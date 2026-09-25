@@ -61,7 +61,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       title: t.category === 'private' ? 'Private Trip' : `${t.client || 'Admin'} (${t.businessType})`,
       subtitle: `${t.mileageOut} → ${t.mileageIn} (${Math.max(0, (t.mileageIn || 0) - (t.mileageOut || 0))} KM)`,
       badge: `${Math.max(0, (t.mileageIn || 0) - (t.mileageOut || 0))} KM`,
-      color: t.category === 'private' ? 'text-rose-400 bg-rose-500/10' : (t.businessType === 'admin' ? 'text-amber-400 bg-amber-500/10' : 'text-blue-400 bg-blue-500/10'),
+      color: t.category === 'private' ? 'text-violet-400 bg-violet-500/10' : (t.businessType === 'admin' ? 'text-amber-400 bg-amber-500/10' : 'text-blue-400 bg-blue-500/10'),
     })),
     ...sessions.filter((s) => s.status === 'completed').map((s) => {
       const a = new Date(`${s.onDate}T${s.onTime || '00:00'}`);
@@ -381,7 +381,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                       {col.client} ({col.jobNumber || 'Job'})
                     </th>
                   ))}
-                  <th className="pb-2 font-medium text-right">Pvt Km</th>
+                  <th className="pb-2 font-medium text-right text-violet-400">Pvt Km</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
@@ -405,7 +405,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                           </td>
                         );
                       })}
-                      <td className="py-2.5 text-right font-mono text-rose-300">
+                      <td className="py-2.5 text-right font-mono text-violet-300">
                         {dayData.pvte > 0 ? `${dayData.pvte}` : '-'}
                       </td>
                     </tr>

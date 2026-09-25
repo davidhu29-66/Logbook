@@ -427,7 +427,7 @@ export const TimesheetView: React.FC<TimesheetViewProps> = ({
                     {col.client}
                   </th>
                 ))}
-                <th className="p-2.5 text-center font-bold text-rose-300 min-w-[90px]">
+                <th className="p-2.5 text-center font-bold text-violet-300 min-w-[90px]">
                   PRIVATE
                 </th>
               </tr>
@@ -448,7 +448,7 @@ export const TimesheetView: React.FC<TimesheetViewProps> = ({
                     {col.jobNumber || (col.type === 'admin' ? 'Admin' : '-')}
                   </th>
                 ))}
-                <th className="p-2 text-center font-mono text-[11px] text-rose-400">
+                <th className="p-2 text-center font-mono text-[11px] text-violet-400">
                   -
                 </th>
               </tr>
@@ -468,7 +468,7 @@ export const TimesheetView: React.FC<TimesheetViewProps> = ({
                     </th>
                   </React.Fragment>
                 ))}
-                <th className="p-1.5 text-center font-semibold text-rose-300 w-20">
+                <th className="p-1.5 text-center font-semibold text-violet-300 w-20">
                   KM
                 </th>
               </tr>
@@ -514,7 +514,7 @@ export const TimesheetView: React.FC<TimesheetViewProps> = ({
                       );
                     })}
 
-                    <td className="p-2 text-right text-rose-300 font-bold">
+                    <td className="p-2 text-right text-violet-300 font-bold">
                       {dayData.pvte > 0 ? Math.round(dayData.pvte) : '-'}
                     </td>
                   </tr>
@@ -549,7 +549,7 @@ export const TimesheetView: React.FC<TimesheetViewProps> = ({
                     </React.Fragment>
                   );
                 })}
-                <td className="p-2 text-right text-rose-400 font-extrabold">
+                <td className="p-2 text-right text-violet-400 font-extrabold">
                   {Math.round(totalPrivateKm)}
                 </td>
               </tr>

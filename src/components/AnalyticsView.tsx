@@ -72,7 +72,7 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({ trips, sessions })
   const mileagePieData = [
     { name: 'Chargeable KM', value: chargeableKm, color: '#ef4444' },
     { name: 'Admin KM', value: adminKm, color: '#f59e0b' },
-    { name: 'Private KM', value: privateKm, color: '#e11d48' },
+    { name: 'Private KM', value: privateKm, color: '#8b5cf6' },
   ].filter((d) => d.value > 0);
 
   // Client hours allocation
@@ -140,7 +140,7 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({ trips, sessions })
 
         <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
           <span className="text-xs text-slate-400">Private Distance</span>
-          <p className="text-2xl font-bold font-mono text-rose-400 mt-1">{privateKm.toLocaleString()} KM</p>
+          <p className="text-2xl font-bold font-mono text-violet-400 mt-1">{privateKm.toLocaleString()} KM</p>
           <p className="text-[11px] text-slate-500 mt-1">
             {totalKm > 0 ? `${Math.round((privateKm / totalKm) * 100)}% of odometer` : '0%'}
           </p>

@@ -363,14 +363,14 @@ export const SarsLogbookView: React.FC<SarsLogbookViewProps> = ({
         </div>
 
         {/* Private Travel */}
-        <div className="rounded-xl border border-rose-500/30 bg-rose-950/30 p-3 print:border-black print:bg-white print:p-2">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-rose-300 print:text-black">
+        <div className="rounded-xl border border-violet-500/30 bg-violet-950/30 p-3 print:border-black print:bg-white print:p-2">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-violet-300 print:text-black">
             Private Travel
           </span>
-          <p className="text-lg font-bold font-mono text-rose-400 print:text-black mt-1">
+          <p className="text-lg font-bold font-mono text-violet-400 print:text-black mt-1">
             {summary.totalPrivateKm.toLocaleString()} KM
           </p>
-          <span className="text-[10px] text-rose-300/70 print:text-gray-500">
+          <span className="text-[10px] text-violet-300/70 print:text-gray-500">
             Commute / Personal
           </span>
         </div>
@@ -447,7 +447,7 @@ export const SarsLogbookView: React.FC<SarsLogbookViewProps> = ({
             onClick={() => setFilterMode('private')}
             className={`px-3 py-1 font-semibold rounded-lg transition-colors ${
               filterMode === 'private'
-                ? 'bg-rose-600 text-white'
+                ? 'bg-violet-600 text-white'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -481,7 +481,7 @@ export const SarsLogbookView: React.FC<SarsLogbookViewProps> = ({
                 <th className="p-2.5 font-bold border-r border-slate-800 print:border-black text-right text-emerald-400 print:text-black whitespace-nowrap">
                   Business KM
                 </th>
-                <th className="p-2.5 font-bold border-r border-slate-800 print:border-black text-right text-rose-400 print:text-black whitespace-nowrap">
+                <th className="p-2.5 font-bold border-r border-slate-800 print:border-black text-right text-violet-400 print:text-black whitespace-nowrap">
                   Private KM
                 </th>
                 <th className="p-2.5 font-bold border-r border-slate-800 print:border-black min-w-[120px]">
@@ -538,7 +538,7 @@ export const SarsLogbookView: React.FC<SarsLogbookViewProps> = ({
                     </td>
 
                     {/* Private KM */}
-                    <td className="p-2.5 text-right font-medium text-rose-400 border-r border-slate-800 print:border-black print:text-black whitespace-nowrap">
+                    <td className="p-2.5 text-right font-medium text-violet-400 border-r border-slate-800 print:border-black print:text-black whitespace-nowrap">
                       {t.privateKm > 0 ? t.privateKm.toLocaleString() : '-'}
                     </td>
 
@@ -555,7 +555,7 @@ export const SarsLogbookView: React.FC<SarsLogbookViewProps> = ({
                     {/* Client & Job */}
                     <td className="p-2.5 font-sans text-slate-300 border-r border-slate-800 print:border-black print:text-black">
                       {t.category === 'private' ? (
-                        <span className="text-rose-400/80 print:text-black">Private</span>
+                        <span className="text-violet-400/80 print:text-black">Private</span>
                       ) : (
                         <div>
                           <span className="font-semibold text-slate-100 print:text-black">{t.client}</span>
@@ -603,7 +603,7 @@ export const SarsLogbookView: React.FC<SarsLogbookViewProps> = ({
                 <td className="p-3 text-right border-r border-slate-800 print:border-black text-emerald-400 print:text-black">
                   {summary.totalBusinessKm.toLocaleString()} KM
                 </td>
-                <td className="p-3 text-right border-r border-slate-800 print:border-black text-rose-400 print:text-black">
+                <td className="p-3 text-right border-r border-slate-800 print:border-black text-violet-400 print:text-black">
                   {summary.totalPrivateKm.toLocaleString()} KM
                 </td>
                 <td colSpan={4} className="p-3 font-sans text-slate-300 print:text-black text-xs">
